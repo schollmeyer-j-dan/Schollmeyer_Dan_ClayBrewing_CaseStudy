@@ -1,0 +1,29 @@
+/*
+#C1C25E
+#949366
+#FCFAE7
+#F2FEDC
+*/
+
+body {
+background: #FCFAE7;
+}
+
+.mainFlex{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+h1 {
+font-family: 'Lobster', cursive;
+}
+
+h3 {
+font-family: 'Boogaloo', cursive;
+}
+
+.button1 {
+color: #F2FEDC;
+background: #949366;
+}
