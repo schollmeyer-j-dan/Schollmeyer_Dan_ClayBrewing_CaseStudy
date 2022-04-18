@@ -1,9 +1,11 @@
 package com.optum.Inventory;
 
+import com.optum.Ingredient.Ingredient;
+
 import java.util.HashMap;
 
 public class Inventory {
-    private static HashMap<Integer,Ingredient> inventoryMap;
+    private static HashMap<Integer, Ingredient> inventoryMap;
 
     public static HashMap<Integer, Ingredient> getInventoryMap() {
         return inventoryMap;

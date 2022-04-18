@@ -1,4 +1,6 @@
-package com.example.claybrewing;
+package com.optum.Ingredient;
+
+import com.optum.Inventory.Inventory;
 
 public class Ingredient {
     private int id;
