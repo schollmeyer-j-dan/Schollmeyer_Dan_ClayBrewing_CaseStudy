@@ -1,17 +1,31 @@
 package com.optum.Ingredient;
 
 import com.optum.Inventory.Inventory;
+import com.sun.istack.NotNull;
 
+import javax.persistence.*;
+// import javax.validation.contstraints.Size;
+import java.util.Objects;
+
+@Entity
+@Table(name="Ingredients")
 public class Ingredient {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotNull
+    //TODO: not sure why this annotation isnt working.  @Size(min=2, max = 30)
     private String name;
     private String description;
-    private String quantityType;
     private int quantity;
+    @Column(name = "Quantity Type")
+    private String quantityType;
 
     public Ingredient() {
     }
 
+/*
     public Ingredient(int id, String name, String description, String quantityType) {
         this.id = id;
         this.name = name;
@@ -20,6 +34,7 @@ public class Ingredient {
         this.quantity = 0;
         save();
     }
+*/
 
     public int getId() {
         return id;
@@ -45,6 +60,14 @@ public class Ingredient {
         this.description = description;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public String getQuantityType() {
         return quantityType;
     }
@@ -53,13 +76,23 @@ public class Ingredient {
         this.quantityType = quantityType;
     }
 
-    public int getQuantity() {
-        return quantity;
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ingredient ingredient = (Ingredient) o;
+        return id == ingredient.id
+                && Objects.equals(name, ingredient.name)
+                && Objects.equals(quantity, ingredient.quantity)
+                && Objects.equals(quantityType, ingredient.quantityType)
+                && Objects.equals(description, ingredient.description);
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    @Override
+    public int hashCode(){
+        return Objects.hash(id, name, description,quantity,quantityType);
     }
+
 
     public boolean create(int id, String name, String description, String quantityType) {
         this.id = id;

@@ -16,8 +16,7 @@ public class Inventory {
 
     public Inventory() {
         inventoryMap = new HashMap<>();
-        //this should be updated to read the inventory from database??
-        // populateInventoryFromDB();
+        // TODO: populateInventoryFromDB();
         addTestIngredient();
     }
 
