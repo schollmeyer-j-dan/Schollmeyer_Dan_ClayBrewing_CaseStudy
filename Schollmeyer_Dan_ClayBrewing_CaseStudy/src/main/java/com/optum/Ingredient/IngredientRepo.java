@@ -4,5 +4,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IngredientRepo extends JpaRepository<Ingredient, Long> {
-    Ingredient findFirstByLastName(String firstName);
+    Ingredient findFirstByName(String name);
 }

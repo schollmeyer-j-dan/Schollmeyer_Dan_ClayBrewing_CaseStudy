@@ -50,7 +50,7 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     public Ingredient getIngredientByName(String name) {
-        Ingredient Ingredient = ingredientRepo.findFirstByLastName(name);
+        Ingredient Ingredient = ingredientRepo.findFirstByName(name);
         if (Ingredient == null) {
             throw new IngredientNotFoundException();
         }

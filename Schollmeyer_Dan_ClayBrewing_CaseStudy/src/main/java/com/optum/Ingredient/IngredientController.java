@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class IngredientController {
@@ -29,17 +30,23 @@ public class IngredientController {
     @GetMapping("/")
     public String getAllIngredients(Model model) {
         model.addAttribute("listIngredients", IngredientService.getAllIngredients());
-        return "index";
+        return "InventoryManagerIndex";
     }
 
-    @GetMapping("/showNewIngredientForm")
+    @GetMapping("/createIngredient")
     public String showNewIngredientForm(Model model) {
         // create model attribute to bind form data
         Ingredient Ingredient = new Ingredient();
         model.addAttribute("Ingredient", Ingredient);
-        return "new_Ingredient";
+        return "CreateIngredient";
     }
 
+    @GetMapping("/displayInventory")
+    public String displayInventory(Model model){
+        List<Ingredient> ingredientsList = IngredientService.getAllIngredients();
+        model.addAttribute("Inventory",ingredientsList);
+        return "DisplayInventory";
+    }
     @PostMapping("/saveIngredient")
     public String saveIngredient(@ModelAttribute("Ingredient") @Valid Ingredient Ingredient,
                                BindingResult bindingResult) {

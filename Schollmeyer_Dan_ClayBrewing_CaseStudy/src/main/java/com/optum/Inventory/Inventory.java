@@ -17,7 +17,6 @@ public class Inventory {
     public Inventory() {
         inventoryMap = new HashMap<>();
         // TODO: populateInventoryFromDB();
-        addTestIngredient();
     }
 
     public static void saveIngredient(Ingredient ingredient) {
@@ -25,7 +24,7 @@ public class Inventory {
     }
 
     //this code to be moved to test class once test is created
-    private void addTestIngredient() {
+/*    private void addTestIngredient() {
         Ingredient ingredient = new Ingredient();
         ingredient.setId(999);
         ingredient.setName("test ingredient");
@@ -33,5 +32,5 @@ public class Inventory {
         ingredient.setQuantityType("pounds?");
         ingredient.setQuantity(1);
         inventoryMap.put(ingredient.getId(), ingredient);
-    }
+    }*/
 }

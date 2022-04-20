@@ -14,16 +14,22 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
-    //TODO: not sure why this annotation isnt working.  @Size(min=2, max = 30)
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    //TODO: add dependency for validation.  @Size(min=2, max = 30)
+
     private String name;
+
     private String description;
+
     private int quantity;
-    @Column(name = "Quantity Type")
+
     private String quantityType;
 
-    public Ingredient() {
-    }
 
 /*
     public Ingredient(int id, String name, String description, String quantityType) {
@@ -36,13 +42,8 @@ public class Ingredient {
     }
 */
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+
 
     public String getName() {
         return name;
@@ -93,27 +94,4 @@ public class Ingredient {
         return Objects.hash(id, name, description,quantity,quantityType);
     }
 
-
-    public boolean create(int id, String name, String description, String quantityType) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.quantityType = quantityType;
-        this.quantity = 0;
-        return save();
-    }
-
-    public boolean update(String name, String description, String quantityType, int quantity) {
-        this.name = name;
-        this.description = description;
-        this.quantityType = quantityType;
-        this.quantity = quantity;
-        return save();
-    }
-
-    private boolean save() {
-        Inventory.saveIngredient(this);
-        return Inventory.getInventoryMap().containsKey(this.id);
-        //update method for failure? connect to db.
-    }
 }
