@@ -12,24 +12,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class IngredientController {
 
-    private IngredientService IngredientService;
+    private IngredientService ingredientService;
 
     public IngredientController() {
     }
 
     @Autowired
     public IngredientController(IngredientService IngredientService) {
-        this.IngredientService = IngredientService;
+        this.ingredientService = IngredientService;
     }
 
     @GetMapping("/")
     public String getAllIngredients(Model model) {
-        model.addAttribute("listIngredients", IngredientService.getAllIngredients());
+        model.addAttribute("listIngredients", ingredientService.getAllIngredients());
         return "InventoryManagerIndex";
     }
 
@@ -43,8 +42,7 @@ public class IngredientController {
 
     @GetMapping("/displayInventory")
     public String displayInventory(Model model){
-        List<Ingredient> ingredientsList = IngredientService.getAllIngredients();
-        model.addAttribute("Inventory",ingredientsList);
+        model.addAttribute("ingredientsList",ingredientService.getAllIngredients());
         return "DisplayInventory";
     }
     @PostMapping("/saveIngredient")
@@ -56,7 +54,7 @@ public class IngredientController {
         }
 
         // save Ingredient to database
-        IngredientService.saveIngredient(Ingredient);
+        ingredientService.saveIngredient(Ingredient);
         return "redirect:/";
     }
 
@@ -64,7 +62,7 @@ public class IngredientController {
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
 
         // get Ingredient from the service
-        Ingredient Ingredient = IngredientService.getIngredientById(id);
+        Ingredient Ingredient = ingredientService.getIngredientById(id);
 
         // set Ingredient as a model attribute to pre-populate the form
         model.addAttribute("Ingredient", Ingredient);
@@ -75,7 +73,7 @@ public class IngredientController {
     public String deleteIngredient(@PathVariable(value = "id") long id) {
 
         // call delete Ingredient method
-        this.IngredientService.deleteIngredientById(id);
+        this.ingredientService.deleteIngredientById(id);
         return "redirect:/";
     }
 

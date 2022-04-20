@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Display Inventory</title>
@@ -18,19 +18,22 @@
     </script>
     <h3>Display Inventory</h3>
     <table id="inventoryTable">
-        <tr th:each = "${ingredientsList}">
-            <td th:text="ingredient.name"></td>
+        <tr>
+            <th align="left">Name</th>
+            <th align="center">Quantity</th>
+            <th align="left">Quantity Type</th>
+        </tr>
+        <tr th:each = "ingredient: ${ingredientsList}">
+            <td th:text="${ingredient.name}"></td>
+            <td align="center" th:text="${ingredient.quantity}"></td>
+            <td th:text="${ingredient.quantityType}"></td>
             <!--
             <td>
                 <a th:href="@{/controllerURL/{id}(id=$ingredient.id})}">update</a>
             </td>
             -->
         </tr>
-        <tr>
-            <th width="200px" align="left">Name</th>
-            <th align="left">Quantity Type</th>
-            <th align="left">Quantity</th>
-        </tr>
+
     </table>
     <br><br>
     <a href="/">
