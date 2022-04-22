@@ -1,7 +1,9 @@
 package com.optum;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SchollmeyerDanClayBrewingCaseStudyApplication {
@@ -10,4 +12,8 @@ public class SchollmeyerDanClayBrewingCaseStudyApplication {
 		SpringApplication.run(SchollmeyerDanClayBrewingCaseStudyApplication.class, args);
 	}
 
+	@Bean
+	public CommandLineRunner commandLineRunner(){
+	return args -> System.out.println("Clay Brewing has Started!");
+	}
 }
