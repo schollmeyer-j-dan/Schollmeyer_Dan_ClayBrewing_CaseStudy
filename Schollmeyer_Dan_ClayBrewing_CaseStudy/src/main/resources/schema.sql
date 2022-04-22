@@ -1,0 +1,2 @@
+CREATE DATABASE ClayBrewing;
+CREATE DATABASE ClayBrewingTest;

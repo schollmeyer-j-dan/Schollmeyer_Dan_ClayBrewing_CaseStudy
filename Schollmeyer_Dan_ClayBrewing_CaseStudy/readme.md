@@ -2,6 +2,7 @@ Schollmeyer_Dan_ClayBrewing_CaseStudy
 Clay Brewing Management System Objective: Inventory management system for a brewery
 
 [Case Study Rubric](https://docs.google.com/document/d/1O7AGv8L45iEWtyzFRXaKQKXdCE8jD0ci3aecPGFQt-0/edit)
+Estimated completion: 53%
 
 TODO::User Stories.
 
