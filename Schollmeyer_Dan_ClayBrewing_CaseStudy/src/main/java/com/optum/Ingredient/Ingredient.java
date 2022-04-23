@@ -30,20 +30,16 @@ public class Ingredient {
 
     private String quantityType;
 
-
 /*
-    public Ingredient(int id, String name, String description, String quantityType) {
+    public Ingredient (){}
+    public Ingredient(int id, String name, String description, String quantityType, int quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.quantityType = quantityType;
-        this.quantity = 0;
-        save();
+        this.quantity = quantity;
     }
 */
-
-
-
 
     public String getName() {
         return name;
@@ -82,7 +78,7 @@ public class Ingredient {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ingredient ingredient = (Ingredient) o;
-        return id == ingredient.id
+        return Objects.equals(id,ingredient.id)
                 && Objects.equals(name, ingredient.name)
                 && Objects.equals(quantity, ingredient.quantity)
                 && Objects.equals(quantityType, ingredient.quantityType)

@@ -43,12 +43,12 @@ public class IngredientController {
     }
 
     @PostMapping("/saveIngredient")
-    public String saveIngredient(@ModelAttribute("Ingredient") @Valid Ingredient Ingredient,
+    public String saveIngredient(@ModelAttribute("Ingredient") @Valid Ingredient ingredient,
                                BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "new_Ingredient";
         }
-        ingredientService.saveIngredient(Ingredient);
+        ingredientService.saveIngredient(ingredient);
         return "redirect:/";
     }
 

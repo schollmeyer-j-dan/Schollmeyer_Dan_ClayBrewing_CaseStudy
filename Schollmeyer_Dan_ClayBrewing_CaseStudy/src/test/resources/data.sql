@@ -1,1 +1,0 @@
-INSERT INTO ingredients (id,description,name,quantity_type,quantity) VALUES (1,'','Dry Wheat Malt','Pounds',100);
