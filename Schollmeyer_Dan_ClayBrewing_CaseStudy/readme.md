@@ -17,16 +17,20 @@ Daily Progress:
         [x] get update fixed
         [x] navbar
         [x] validation
-        [] add recipe model, would need to be many to many...
+        [] add quantityType model and remap to front end options
+        [] add recipe model, would need to be many to many on ingredient list...
         [] Schema Diagram
         [] Tech Stack Diagram
+        [] Wireframe (draw.io)
         [] update rubric to determine remaining priorities
+        [] test rest controller
 4/25:
     Implemented Update for Ingredient
     Implemented Navbar on all pages (replaced existing buttons)
     Updated styling to use bootstrap
     Added validation on Entity model
-    
+    Implemented testing for IngredientServiceImpl
+    Added REST Controller for Ingredient
 4/24:
     Implemented Create/Delete for Ingredient.
     Began implementation of update, currently adding new item rather than updating current item
