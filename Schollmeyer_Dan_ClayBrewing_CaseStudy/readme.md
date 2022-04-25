@@ -15,7 +15,7 @@ Stories:
 Daily Progress:
 4/25:
     todo for today:
-        get update fixed
+        [x]get update fixed
         navbar
         validation
         Tech Stack Diagram

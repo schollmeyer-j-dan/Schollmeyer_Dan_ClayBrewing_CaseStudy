@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+
 import javax.validation.Valid;
 
 @Controller
@@ -65,18 +63,12 @@ public class IngredientController {
 
     @PostMapping("/updateIngredient")
     public String updateIngredient(@ModelAttribute("Ingredient") @Valid Ingredient ingredient,
-                                 //@PathVariable(value = "id") long id,
                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "UpdateIngredient";
         }
-        Ingredient ingredient1 = ingredientService.getIngredientById(ingredient.getId());
-        ingredient1.setQuantity(ingredient.getQuantity());
-        ingredient1.setName(ingredient.getName());
-        ingredient1.setQuantityType(ingredient.getQuantityType());
-        ingredient1.setDescription(ingredient.getDescription());
-        ingredientService.saveIngredient(ingredient1);
-        //ingredientService.saveIngredient(ingredient);
+
+        ingredientService.saveIngredient(ingredient);
         return "redirect:/displayInventory";
     }
 

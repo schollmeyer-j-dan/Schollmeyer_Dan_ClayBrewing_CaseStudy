@@ -20,12 +20,36 @@ public class Ingredient {
     //TODO: add dependency for validation.  @Size(min=2, max = 30)
 
     private String name;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     private String description;
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     private int quantity;
+    public int getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     private String quantityType;
+    public String getQuantityType() {
+        return quantityType;
+    }
+    public void setQuantityType(String quantityType) {
+        this.quantityType = quantityType;
+    }
 
 /*
     public Ingredient (){}
@@ -37,38 +61,6 @@ public class Ingredient {
         this.quantity = quantity;
     }
 */
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getQuantityType() {
-        return quantityType;
-    }
-
-    public void setQuantityType(String quantityType) {
-        this.quantityType = quantityType;
-    }
 
     @Override
     public boolean equals(Object o){

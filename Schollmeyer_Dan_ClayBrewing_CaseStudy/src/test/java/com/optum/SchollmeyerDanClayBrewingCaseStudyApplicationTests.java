@@ -29,7 +29,6 @@ class SchollmeyerDanClayBrewingCaseStudyApplicationTests {
 	@BeforeEach
 	void setUp(){
 		ingredientRepo.deleteAll();
-		System.out.println(ingredientRepo.findAll());
 	}
 
 	@Transactional
@@ -40,19 +39,9 @@ class SchollmeyerDanClayBrewingCaseStudyApplicationTests {
 		expectedIngredient.setDescription("");
 		expectedIngredient.setQuantityType("Pounds");
 		expectedIngredient.setQuantity(4);
-		//Ingredient expectedIngredient = new Ingredient( 1, "Dry Wheat Malt", "","Pounds", 4);
 		ingredientRepo.save(expectedIngredient);
 		Ingredient actualIngredient = ingredientRepo.findFirstByName("Dry Wheat Malt");
-		System.out.println(expectedIngredient.getId());
-		System.out.println(actualIngredient.getId());
-		System.out.println(expectedIngredient.getName());
-		System.out.println(actualIngredient.getName());
-		System.out.println(expectedIngredient.getDescription());
-		System.out.println(actualIngredient.getDescription());
-		System.out.println(expectedIngredient.getQuantity());
-		System.out.println(actualIngredient.getQuantity());
-		System.out.println(expectedIngredient.getQuantityType());
-		System.out.println(actualIngredient.getQuantityType());
+
 		assertThat(expectedIngredient).isEqualTo(actualIngredient);
 	}
 
