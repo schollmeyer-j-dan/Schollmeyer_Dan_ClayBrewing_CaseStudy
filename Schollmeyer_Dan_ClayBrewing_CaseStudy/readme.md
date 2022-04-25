@@ -2,7 +2,7 @@ Schollmeyer_Dan_ClayBrewing_CaseStudy
 Clay Brewing Management System Objective: Inventory management system for a brewery
 
 [Case Study Rubric](https://docs.google.com/document/d/1O7AGv8L45iEWtyzFRXaKQKXdCE8jD0ci3aecPGFQt-0/edit)
-Estimated completion: 60%
+Estimated completion: 80%
 
 TODO::User Stories.
 
@@ -13,20 +13,25 @@ Stories:
 [] As a user I would like to review inventory so that I know when to re-order supplies.
 
 Daily Progress:
-4/25:
     todo for today:
-        [x]get update fixed
-        navbar
-        validation
-        Tech Stack Diagram
-        Schema Diagram
-        update rubric to determine remaining priorities
+        [x] get update fixed
+        [x] navbar
+        [x] validation
+        [] add recipe model, would need to be many to many...
+        [] Schema Diagram
+        [] Tech Stack Diagram
+        [] update rubric to determine remaining priorities
+4/25:
+    Implemented Update for Ingredient
+    Implemented Navbar on all pages (replaced existing buttons)
+    Updated styling to use bootstrap
+    Added validation on Entity model
+    
 4/24:
     Implemented Create/Delete for Ingredient.
     Began implementation of update, currently adding new item rather than updating current item
 4/22:
     Got data.dql working on initial run (was previously only working after second run)
-    
 4/20:
     Updated model (column name issue) to get table create working in database
     Updated HTML pages/buttons for navigation (should be moved to navbar in future)

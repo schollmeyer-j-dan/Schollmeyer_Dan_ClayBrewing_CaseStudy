@@ -1,7 +1,8 @@
 package com.optum.Ingredient;
 
 import javax.persistence.*;
-// import javax.validation.contstraints.Size;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Objects;
 
 @Entity
@@ -17,8 +18,9 @@ public class Ingredient {
     public void setId(long id) {
         this.id = id;
     }
-    //TODO: add dependency for validation.  @Size(min=2, max = 30)
 
+    @NotNull
+    @Size(min=2, max = 30)
     private String name;
     public String getName() {
         return name;
@@ -35,6 +37,7 @@ public class Ingredient {
         this.description = description;
     }
 
+
     private int quantity;
     public int getQuantity() {
         return quantity;
@@ -43,6 +46,7 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
+    @NotNull
     private String quantityType;
     public String getQuantityType() {
         return quantityType;

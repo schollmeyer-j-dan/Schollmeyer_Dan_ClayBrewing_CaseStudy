@@ -1,4 +1,4 @@
-package com.optum;
+package com.optum.IngredientTests;
 
 import com.optum.Ingredient.Ingredient;
 import com.optum.Ingredient.IngredientRepo;
@@ -6,30 +6,22 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-class SchollmeyerDanClayBrewingCaseStudyApplicationTests {
+public class IngredientRepoTests {
 
 	@Autowired
 	private IngredientRepo ingredientRepo;
-
-/*	@Test
-	void contextLoads() {
-
-	}*/
-
 
 	@BeforeEach
 	void setUp(){
 		ingredientRepo.deleteAll();
 	}
+
 
 	@Transactional
 	@Test

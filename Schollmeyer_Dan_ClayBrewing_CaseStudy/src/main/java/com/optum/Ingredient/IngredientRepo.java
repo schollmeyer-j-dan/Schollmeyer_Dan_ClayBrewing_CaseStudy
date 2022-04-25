@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface IngredientRepo extends JpaRepository<Ingredient, Long> {
     Ingredient findFirstByName(String name);
-    Ingredient findFirstById(int id);
+    Ingredient findFirstById(long id);
 }

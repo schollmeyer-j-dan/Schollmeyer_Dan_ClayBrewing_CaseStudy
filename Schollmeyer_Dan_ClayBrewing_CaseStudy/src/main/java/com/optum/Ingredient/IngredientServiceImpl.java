@@ -24,18 +24,11 @@ public class IngredientServiceImpl implements IngredientService {
         return ingredientRepo.findAll();
     }
 
-
     @Override
     public void saveIngredient(Ingredient ingredient) {
         ingredientRepo.save(ingredient);
     }
 
-    /**
-     * Returns an Ingredient object based on id argument.
-     * <p>
-     * @param  id  id of an Ingredient
-     * @return      Ingredient object
-     */
     @Override
     public Ingredient getIngredientById(long id) {
 
@@ -46,16 +39,6 @@ public class IngredientServiceImpl implements IngredientService {
         }
         throw new IngredientNotFoundException(id);
     }
-
-    //todo: remove if not needed. also remove from interface
-/*    @Override
-    public Ingredient getIngredientByName(String name) {
-        Ingredient Ingredient = ingredientRepo.findFirstByName(name);
-        if (Ingredient == null) {
-            throw new IngredientNotFoundException();
-        }
-        return Ingredient;
-    }*/
 
     @Override
     public void deleteIngredientById(long id) {

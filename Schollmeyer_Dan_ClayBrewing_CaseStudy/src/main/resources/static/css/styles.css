@@ -21,6 +21,10 @@ align-items: center;
     text-color: red;
 }
 
+.logButtons {
+float: right
+}
+
 h1 {
 font-family: 'Lobster', cursive;
 }
