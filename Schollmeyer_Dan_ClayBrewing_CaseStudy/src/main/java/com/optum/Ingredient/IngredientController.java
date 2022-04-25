@@ -1,5 +1,7 @@
 package com.optum.Ingredient;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +14,7 @@ import javax.validation.Valid;
 public class IngredientController {
 
     private IngredientService ingredientService;
-
+    private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     public IngredientController() {
     }
 
@@ -31,6 +33,7 @@ public class IngredientController {
     @GetMapping("/displayInventory")
     public String displayInventory(Model model){
         model.addAttribute("ingredientsList",ingredientService.getAllIngredients());
+        LOGGER.info("Ingredient list retrieved for view.");
         return "DisplayInventory";
     }
 
@@ -51,6 +54,7 @@ public class IngredientController {
         }
 
         ingredientService.saveIngredient(ingredient);
+        LOGGER.info("Ingredient saved: " + ingredient.getName());
         return "redirect:/displayInventory";
     }
 
