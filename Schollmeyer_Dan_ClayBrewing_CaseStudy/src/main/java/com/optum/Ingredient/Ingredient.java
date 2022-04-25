@@ -1,8 +1,5 @@
 package com.optum.Ingredient;
 
-import com.optum.Inventory.Inventory;
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 // import javax.validation.contstraints.Size;
 import java.util.Objects;
@@ -13,11 +10,11 @@ public class Ingredient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    public int getId() {
+    private long id;
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     //TODO: add dependency for validation.  @Size(min=2, max = 30)

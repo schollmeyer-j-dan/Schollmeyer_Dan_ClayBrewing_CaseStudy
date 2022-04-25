@@ -32,6 +32,10 @@
                 <a th:href="@{/controllerURL/{id}(id=$ingredient.id})}">update</a>
             </td>
             -->
+            <td>
+                <a th:href="@{/updateIngredient/{id}(id=${ingredient.id})}" class="button1">Update</a>
+                <a th:href="@{/deleteIngredient/{id}(id=${ingredient.id})}" class="button1">Delete</a>
+            </td>
         </tr>
 
     </table>
