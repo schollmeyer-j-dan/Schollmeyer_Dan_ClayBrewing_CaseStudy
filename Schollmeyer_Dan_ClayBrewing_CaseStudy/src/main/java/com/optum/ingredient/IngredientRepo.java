@@ -1,4 +1,4 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

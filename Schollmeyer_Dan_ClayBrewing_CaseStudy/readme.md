@@ -1,29 +1,28 @@
 Schollmeyer_Dan_ClayBrewing_CaseStudy
 Clay Brewing Management System Objective: Inventory management system for a brewery
 
-[Case Study Rubric](https://docs.google.com/document/d/1O7AGv8L45iEWtyzFRXaKQKXdCE8jD0ci3aecPGFQt-0/edit)
-Estimated completion: 80%
+[Tech Stack Diagram](TechStack.png)
+[Schema Diagram](schemaDiagram.pdf)
 
-TODO::User Stories.
+[Case Study Rubric](https://docs.google.com/document/d/1O7AGv8L45iEWtyzFRXaKQKXdCE8jD0ci3aecPGFQt-0/edit)
 
 Stories:
-[] As a user I would like to be able to reduce inventory amounts so that our inventory is up-to-date.
-[] As a user I would like to be able to increase inventory so that our inventory is up-to-date.
+[] As a user I would like to be able to increase/reduce inventory amounts so that our inventory is up-to-date.
 [] As a user I would like to be able to review inventory so that I know which beer we have supplies on hand for.
 [] As a user I would like to review inventory so that I know when to re-order supplies.
+[] As a user I would like to be able to add a new Ingredient to our inventory.
+[] As a user I would like to be able to remove an Ingredient from our inventory.
+[] As a user I would like to be able to view our recipes.
 
-Daily Progress:
-    todo for today:
-        [x] get update fixed
-        [x] navbar
-        [x] validation
-        [] add quantityType model and remap to front end options
-        [] add recipe model, would need to be many to many on ingredient list...
-        [] Schema Diagram
-        [] Tech Stack Diagram
-        [] Wireframe (draw.io)
-        [] update rubric to determine remaining priorities
-        [] test rest controller
+4/26:
+    Added view for recipe list and added the view to navbar
+    Added a recipe to data.sql
+    Added Recipe Model and repo/service/controller
+    Added Tech Stack diagram
+    Added Schema diagram 
+    Created model for QuantityType
+    Implemented repo and service for QuantityType
+    Connected Ingredient display/create/update with QuantityType model
 4/25:
     Implemented Update for Ingredient
     Implemented Navbar on all pages (replaced existing buttons)
@@ -52,13 +51,21 @@ Daily Progress:
     Added newly created project to gitHub
 
 
+What I learned:
+    The area in which I feel I learned the most was working with Spring JPA.
+        I had to do some research to get the bindings working correctly and populating the database,
+        as well as getting the foreign key / join table to work.
+    
 
 
-Stretch Goals:
-    separate package or project to manage recipes
+Future Goals:
+    [] Would like to add ordering info such as vendor/item#
+    [] Add package for managing recipes
+        Ability to add recipe from provided ingredient in inventory
         check for available supplies and/or put in reorder requests for upcoming batches
         update quantity on appropriate items when producing given recipe
         possibly add friends/user communication portal for sharing recipes
+    
 
 
 

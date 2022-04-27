@@ -24,6 +24,9 @@
                 <a href="/createIngredient" class="nav-link active">Create Ingredient</a>
             </li>
             <li class="nav-item">
+                <a href="/displayRecipes" class="nav-link active">Display Recipes</a>
+            </li>
+            <li class="nav-item">
                 <a href="/login" class="nav-link" sec:authorize="isAnonymous()">Login</a>
             </li>
             <li class="nav-item">
@@ -40,9 +43,6 @@
         <form th:action="@{/updateIngredient}" th:object="${ingredient}" method="post">
             <table class="m-auto">
                 <tr>
-                    <td align="right">
-                        <label for="ingredientId">Ingredient Id</label>
-                    </td>
                     <td>
                         <input id="ingredientId" th:field="*{id}" type="hidden">
                     </td>
@@ -69,10 +69,10 @@
                         <label for="ingredientQuantityType">Ingredient Quantity Type </label>
                     </td>
                     <td>
-                        <select  class="cniInputs" id="ingredientQuantityType" th:field="*{quantityType}" required="required">
-                            <option value=Pounds>Pounds</option>
-                            <option value=Ounces>Ounces</option>
-                            <option value=Grams>Grams</option>
+                        <select id="ingredientQuantityType" th:field="*{quantityType}" class="form-control">
+                            <th:block th:each="quantityType : ${typeList}">
+                                <option th:text="${quantityType.type}" th:value="${quantityType.id}"></option>
+                            </th:block>
                         </select>
                     </td>
                 </tr>

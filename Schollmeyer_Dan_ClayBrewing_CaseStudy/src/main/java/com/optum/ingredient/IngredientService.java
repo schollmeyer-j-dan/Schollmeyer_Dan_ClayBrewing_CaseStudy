@@ -1,4 +1,4 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
 
 public class IngredientNotFoundException extends RuntimeException {
     public IngredientNotFoundException(long id){

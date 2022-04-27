@@ -1,5 +1,7 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
 
+import com.optum.quantity_type.QuantityType;
+import com.optum.quantity_type.QuantityTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,24 +11,25 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class IngredientController {
 
     private IngredientService ingredientService;
+    private QuantityTypeService quantityTypeService;
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
     public IngredientController() {
     }
 
     @Autowired
-    public IngredientController(IngredientService IngredientService) {
-        this.ingredientService = IngredientService;
+    public IngredientController(IngredientService ingredientService,QuantityTypeService quantityTypeService) {
+        this.ingredientService = ingredientService;
+        this.quantityTypeService = quantityTypeService;
     }
 
     @GetMapping("/")
-    public String getAllIngredients(Model model) {
-        Ingredient ingredient = new Ingredient();
-        model.addAttribute("ingredient", ingredient);
+    public String index() {
         return "InventoryManagerIndex";
     }
 
@@ -40,8 +43,9 @@ public class IngredientController {
     @GetMapping("/createIngredient")
     public String showNewIngredientForm(Model model) {
         Ingredient ingredient = new Ingredient();
-
+        List<QuantityType> typeList = quantityTypeService.getAllQuantityTypes();
         model.addAttribute("ingredient", ingredient);
+        model.addAttribute("typeList",typeList);
 
         return "CreateIngredient";
     }
@@ -61,7 +65,11 @@ public class IngredientController {
     @GetMapping("/updateIngredient/{id}")
     public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
         Ingredient ingredient = ingredientService.getIngredientById(id);
+        List<QuantityType> typeList = quantityTypeService.getAllQuantityTypes();
+
         model.addAttribute("ingredient", ingredient);
+        model.addAttribute("typeList",typeList);
+
         return "UpdateIngredient";
     }
 

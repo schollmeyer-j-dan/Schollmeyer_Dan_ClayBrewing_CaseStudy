@@ -1,8 +1,10 @@
 package com.optum.IngredientTests;
 
-import com.optum.Ingredient.Ingredient;
-import com.optum.Ingredient.IngredientRepo;
-import com.optum.Ingredient.IngredientServiceImpl;
+import com.optum.ingredient.Ingredient;
+import com.optum.ingredient.IngredientRepo;
+import com.optum.ingredient.IngredientServiceImpl;
+import com.optum.quantity_type.QuantityType;
+import com.optum.quantity_type.QuantityTypeRepo;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,13 +23,20 @@ public class IngredientServiceTests {
 
     @Autowired
     private IngredientRepo ingredientRepo;
+    @Autowired
+    private QuantityTypeRepo quantityTypeRepo;
 
     @BeforeEach
     public void setUp(){
+        ingredientRepo.deleteAll();
+        quantityTypeRepo.deleteAll();
+        QuantityType type = new QuantityType();
+        type.setType("Pounds");
+        quantityTypeRepo.save(type);
         Ingredient ingredient = new Ingredient();
         ingredient.setName("Test");
         ingredient.setDescription("A test ingredient");
-        ingredient.setQuantityType("Pounds");
+        ingredient.setQuantityType(quantityTypeRepo.findFirstByType("Pounds"));
         ingredient.setQuantity(10);
 
         ingredientRepo.save(ingredient);
@@ -35,15 +44,6 @@ public class IngredientServiceTests {
         this.ingredientService=new IngredientServiceImpl(ingredientRepo);
     }
 
-    @AfterEach
-    public void tearDown(){
-        ingredientRepo.deleteAll();
-    }
-
-    @Test
-    public void testtest(){
-        System.out.println("Test");
-    }
     @Test
     public void getAllIngredientsReturnsListOfIngredientsIfNotEmpty(){
         List<Ingredient> ingredientList = ingredientService.getAllIngredients();
@@ -55,7 +55,7 @@ public class IngredientServiceTests {
     public void saveIngredientPersistsIngredientToDb(){
         Ingredient testIngredient = new Ingredient();
         testIngredient.setName("test2");
-        testIngredient.setQuantityType("Pounds");
+        testIngredient.setQuantityType(quantityTypeRepo.findFirstByType("Pounds"));
         ingredientRepo.save(testIngredient);
 
         assertThat(testIngredient).isEqualTo(ingredientRepo.findFirstByName("test2"));

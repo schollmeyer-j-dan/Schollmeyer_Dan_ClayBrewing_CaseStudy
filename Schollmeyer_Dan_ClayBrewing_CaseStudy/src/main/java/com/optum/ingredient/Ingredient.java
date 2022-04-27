@@ -1,4 +1,9 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
+
+import com.optum.quantity_type.QuantityType;
+import com.optum.quantity_type.QuantityTypeRepo;
+import com.optum.quantity_type.QuantityTypeService;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -46,25 +51,24 @@ public class Ingredient {
         this.quantity = quantity;
     }
 
-    @NotNull
-    private String quantityType;
-    public String getQuantityType() {
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "quantity_type_id")
+    private QuantityType quantityType;
+    public QuantityType getQuantityType() {
         return quantityType;
     }
-    public void setQuantityType(String quantityType) {
+    public void setQuantityType(QuantityType quantityType) {
         this.quantityType = quantityType;
     }
 
-/*
+
     public Ingredient (){}
-    public Ingredient(int id, String name, String description, String quantityType, int quantity) {
-        this.id = id;
+    public Ingredient(String name, String description, QuantityType quantityType, int quantity) {
         this.name = name;
         this.description = description;
         this.quantityType = quantityType;
         this.quantity = quantity;
     }
-*/
 
     @Override
     public boolean equals(Object o){

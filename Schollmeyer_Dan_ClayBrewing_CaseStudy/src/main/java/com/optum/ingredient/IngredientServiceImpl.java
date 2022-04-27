@@ -1,4 +1,4 @@
-package com.optum.Ingredient;
+package com.optum.ingredient;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -8,11 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Primary
 public class IngredientServiceImpl implements IngredientService {
 
     private IngredientRepo ingredientRepo;
-    private Ingredient Ingredient;
 
     @Autowired
     public IngredientServiceImpl(IngredientRepo ingredientRepo) {
@@ -34,8 +32,8 @@ public class IngredientServiceImpl implements IngredientService {
 
         Optional<Ingredient> optionalIngredient = ingredientRepo.findById(id);
         if (optionalIngredient.isPresent()) {
-            Ingredient Ingredient = optionalIngredient.get();
-            return Ingredient;
+            Ingredient ingredient = optionalIngredient.get();
+            return ingredient;
         }
         throw new IngredientNotFoundException(id);
     }
