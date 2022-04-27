@@ -53,18 +53,24 @@ Stories:
 
 What I learned:
     The area in which I feel I learned the most was working with Spring JPA.
-        I had to do some research to get the bindings working correctly and populating the database,
-        as well as getting the foreign key / join table to work.
+        I had to do quite a bit of research to get the bindings working correctly and populating the
+        database, as well as getting the foreign key / join table to work. However, the most recent
+        model I added went quite smoothly, even including the ManyToMany relationship.
     
-
+Technical Challenges:
+    Getting both Thymeleaf and bootstrap to work correctly took me quite a bit of experimentation.
+    Especially the bootstrap was a lot of looking up all the available classes and trying to swap them
+    in and out and see what affect they had, and repeat until finding a desired outcome. As for thymeleaf,
+    I feel more comfortable with that now and a lot of getting it work was just talking with classmates
+    and trying to find appropriate variations based on how they got theirs to work. I found both of these
+    somewhat difficult to find accurate or detailed references for online.
 
 Future Goals:
     [] Would like to add ordering info such as vendor/item#
-    [] Add package for managing recipes
-        Ability to add recipe from provided ingredient in inventory
-        check for available supplies and/or put in reorder requests for upcoming batches
-        update quantity on appropriate items when producing given recipe
-        possibly add friends/user communication portal for sharing recipes
+    [] Would like to expand on the Recipe functionality quite a bit, including:
+        Ability to add(and update) recipes from provided ingredients in inventory
+        Update quantity on appropriate items when producing given recipe
+        Possibly add friends/user communication portal for sharing recipes
     
 
 
